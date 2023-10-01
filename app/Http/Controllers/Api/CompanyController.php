@@ -7,12 +7,12 @@ use App\Http\Requests\CompanyRequest;
 use HubSpot\Client\Crm\Companies\ApiException;
 use HubSpot\Client\Crm\Companies\Model\SimplePublicObject;
 use HubSpot\Discovery\Discovery;
-use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
 class CompanyController extends Controller
 {
 	private const MESSAGE_404 = 'Company with ID "%s" not found';
+	private  $allowerdProperties = ['name','address','country','city'];
 
 	public function __construct(private readonly Discovery $hubSpot)
 	{
@@ -20,7 +20,7 @@ class CompanyController extends Controller
 
 	public function index()
 	{
-		$data = $this->hubSpot->crm()->companies()->basicApi()->getPage(100);
+		$data = $this->hubSpot->crm()->companies()->basicApi()->getPage(100,null,$this->allowerdProperties);
 
 		return response()->json(['data' => $data]);
 	}
@@ -43,7 +43,7 @@ class CompanyController extends Controller
 	public function show(string $id)
 	{
 		try {
-			$data = $this->hubSpot->crm()->companies()->basicApi()->getById($id);
+			$data = $this->hubSpot->crm()->companies()->basicApi()->getById($id,$this->allowerdProperties);
 			return response()->json(['data' => $data]);
 		} catch (ApiException $exception) {
 			return response()->json(['message' => sprintf(self::MESSAGE_404, $id)], 404);
