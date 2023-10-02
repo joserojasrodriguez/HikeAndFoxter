@@ -1,0 +1,220 @@
+{
+	"info": {
+		"_postman_id": "691e65de-3e61-439d-8f9b-3edb38e80468",
+		"name": "Hike&Foxter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1496325",
+		"_collection_link": "https://solar-satellite-353442.postman.co/workspace/Code2Gether~ec6af5c1-f657-42a2-b690-083e3aff05e8/collection/1496325-691e65de-3e61-439d-8f9b-3edb38e80468?action=share&source=collection_link&creator=1496325"
+	},
+	"item": [
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "List Companies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{APP_URL}}/api/{{APP_VERSION}}/company",
+							"host": [
+								"{{APP_URL}}"
+							],
+							"path": [
+								"api",
+								"{{APP_VERSION}}",
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Comanies",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{APP_URL}}/api/{{APP_VERSION}}/company/export",
+							"host": [
+								"{{APP_URL}}"
+							],
+							"path": [
+								"api",
+								"{{APP_VERSION}}",
+								"company",
+								"export"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{APP_URL}}/api/{{APP_VERSION}}/company/8628792803",
+							"host": [
+								"{{APP_URL}}"
+							],
+							"path": [
+								"api",
+								"{{APP_VERSION}}",
+								"company",
+								"8628792803"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"TechZara\",\n    \"dirección\": \"Calle Falsa 123\",\n    \"ciudad\": \"Madrid\",\n    \"pais\": \"España\"\n}"
+						},
+						"url": {
+							"raw": "{{APP_URL}}/api/{{APP_VERSION}}/company/8628792803",
+							"host": [
+								"{{APP_URL}}"
+							],
+							"path": [
+								"api",
+								"{{APP_VERSION}}",
+								"company",
+								"8628792803"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"TechCompany\",\n    \"dirección\": \"Calle Inventada 123\",\n    \"ciudad\": \"Sevilla\",\n    \"pais\": \"España\"\n}"
+						},
+						"url": {
+							"raw": "{{APP_URL}}/api/{{APP_VERSION}}/company",
+							"host": [
+								"{{APP_URL}}"
+							],
+							"path": [
+								"api",
+								"{{APP_VERSION}}",
+								"company"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "APP_URL",
+			"value": "http://hikeandfoxter.test",
+			"type": "string"
+		},
+		{
+			"key": "APP_VERSION",
+			"value": "v1",
+			"type": "string"
+		},
+		{
+			"key": "CompanyId",
+			"value": "8628792803"
+		}
+	]
+}
